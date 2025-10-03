@@ -29,7 +29,10 @@ function App() {
             <Route path="companies/:companyId" element={<CompanyDetail />} />
             <Route path="integrations" element={<div className="p-8"><h1 className="text-2xl font-bold">Integrations</h1><p>Coming soon...</p></div>} />
             <Route path="api-keys" element={<ApiKeys />} />
+            <Route path="notifications" element={<div className="p-8"><h1 className="text-2xl font-bold">Notifications</h1><p>Coming soon...</p></div>} />
+            <Route path="billing" element={<div className="p-8"><h1 className="text-2xl font-bold">Billing</h1><p>Coming soon...</p></div>} />
             <Route path="settings" element={<div className="p-8"><h1 className="text-2xl font-bold">Settings</h1><p>Coming soon...</p></div>} />
+            <Route path="api-docs" element={<div className="p-8"><h1 className="text-2xl font-bold">API Documentation</h1><p>Coming soon...</p></div>} />
             <Route path="payments" element={<div className="p-8"><h1 className="text-2xl font-bold">Payments</h1><p>Coming soon...</p></div>} />
             <Route path="customers" element={<div className="p-8"><h1 className="text-2xl font-bold">Customers</h1><p>Coming soon...</p></div>} />
             <Route path="analytics" element={<div className="p-8"><h1 className="text-2xl font-bold">Analytics</h1><p>Coming soon...</p></div>} />

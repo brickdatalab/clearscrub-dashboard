@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom'
 import { 
   Building2, 
   Plug, 
-  Key, 
+  Key,
+  Bell,
+  CreditCard,
   Settings,
+  BookOpen,
   X
 } from 'lucide-react'
 
@@ -12,7 +15,10 @@ const navigationItems = [
   { name: 'Companies', href: '/companies', icon: Building2 },
   { name: 'Integrations', href: '/integrations', icon: Plug },
   { name: 'API Keys', href: '/api-keys', icon: Key },
+  { name: 'Notifications', href: '/notifications', icon: Bell },
+  { name: 'Billing', href: '/billing', icon: CreditCard },
   { name: 'Settings', href: '/settings', icon: Settings },
+  { name: 'API Docs', href: '/api-docs', icon: BookOpen },
 ]
 
 interface SidebarProps {
