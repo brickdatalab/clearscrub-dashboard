@@ -52,11 +52,12 @@ export default function Companies() {
   const [showSuggestions, setShowSuggestions] = React.useState(false)
   const [filteredSuggestions, setFilteredSuggestions] = React.useState<Company[]>([])
 
-  // Filter suggestions based on search query
+  // Filter suggestions based on search query - search ALL companies regardless of active tab
   React.useEffect(() => {
     if (searchQuery.trim()) {
       const filtered = mockCompanies.filter(company =>
-        company.name.toLowerCase().includes(searchQuery.toLowerCase())
+        company.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        company.email.toLowerCase().includes(searchQuery.toLowerCase())
       )
       setFilteredSuggestions(filtered)
       setShowSuggestions(filtered.length > 0)
@@ -64,7 +65,7 @@ export default function Companies() {
       setShowSuggestions(false)
       setFilteredSuggestions([])
     }
-  }, [searchQuery])
+  }, [searchQuery]) // Note: NOT dependent on activeTab - search all companies
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value)
@@ -73,6 +74,14 @@ export default function Companies() {
   const handleSuggestionClick = (company: Company) => {
     setSearchQuery(company.name)
     setShowSuggestions(false)
+    
+    // Switch to the appropriate tab based on company status
+    const tabMap = {
+      'completed': 'Complete',
+      'processing': 'Processing', 
+      'failed': 'Failed'
+    }
+    setActiveTab(tabMap[company.file_status])
   }
   const [companies] = useState<Company[]>(mockCompanies)
   const [activeTab, setActiveTab] = useState('Complete')

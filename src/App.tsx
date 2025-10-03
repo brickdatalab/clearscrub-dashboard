@@ -6,6 +6,7 @@ import AppShell from './layouts/AppShell'
 import Login from './pages/Login'
 import Companies from './pages/Companies'
 import CompanyDetail from './pages/CompanyDetail'
+import ApiKeys from './pages/ApiKeys'
 import './index.css'
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
             <Route path="companies" element={<Companies />} />
             <Route path="companies/:companyId" element={<CompanyDetail />} />
             <Route path="integrations" element={<div className="p-8"><h1 className="text-2xl font-bold">Integrations</h1><p>Coming soon...</p></div>} />
-            <Route path="api-keys" element={<div className="p-8"><h1 className="text-2xl font-bold">API Keys</h1><p>Coming soon...</p></div>} />
+            <Route path="api-keys" element={<ApiKeys />} />
             <Route path="settings" element={<div className="p-8"><h1 className="text-2xl font-bold">Settings</h1><p>Coming soon...</p></div>} />
             <Route path="payments" element={<div className="p-8"><h1 className="text-2xl font-bold">Payments</h1><p>Coming soon...</p></div>} />
             <Route path="customers" element={<div className="p-8"><h1 className="text-2xl font-bold">Customers</h1><p>Coming soon...</p></div>} />
