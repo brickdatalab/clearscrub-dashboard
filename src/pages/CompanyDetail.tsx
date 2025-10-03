@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { 
   ChevronRight, 
-  Download, 
   Plus,
   Calendar,
   DollarSign,
@@ -12,7 +11,8 @@ import {
   Clock,
   TrendingUp,
   Users,
-  BarChart3
+  BarChart3,
+  Edit
 } from 'lucide-react'
 
 interface CompanyData {
@@ -155,13 +155,9 @@ export default function CompanyDetail() {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-          <button className="btn-secondary flex items-center gap-2 justify-center">
-            <Download className="w-4 h-4" />
-            Export
-          </button>
           <button className="btn-primary flex items-center gap-2 justify-center">
             <Plus className="w-4 h-4" />
-            <span className="hidden sm:inline">Enrich Bank Transactions</span>
+            <span className="hidden sm:inline">Enrich Submission</span>
             <span className="sm:hidden">Enrich</span>
           </button>
         </div>
@@ -171,33 +167,7 @@ export default function CompanyDetail() {
       <div className="grid grid-cols-1 xl:grid-cols-detail gap-6 xl:gap-8">
         {/* Left Column: Main Content */}
         <div className="space-y-8">
-          {/* Transaction Data Coverage Chart */}
-          <div className="card">
-            <div className="px-5 py-4 border-b border-gray-200">
-              <h2 className="text-16 font-semibold text-gray-900">Transaction Data Coverage</h2>
-              <p className="text-13 text-gray-500 mt-1">Jul 2025 - Sep 2025</p>
-            </div>
-            <div className="p-5">
-              <div className="space-y-4">
-                {company.transactions.map((transaction, index) => (
-                  <div key={transaction.period} className="flex items-center gap-4">
-                    <div className="w-16 text-13 text-gray-600 font-medium">
-                      {new Date(transaction.period + '-01').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                    </div>
-                    <div className="flex-1 h-8 bg-gray-100 rounded-4 overflow-hidden">
-                      <div 
-                        className="h-full bg-primary-600 rounded-4"
-                        style={{ width: '100%' }}
-                      />
-                    </div>
-                    <div className="text-13 text-gray-600">
-                      {Math.floor(Math.random() * 31) + 1} days PDF
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+
 
           {/* Bank Statement Summary */}
           <div className="card">
@@ -333,55 +303,20 @@ export default function CompanyDetail() {
 
           {/* Metadata Card */}
           <div className="card">
-            <div className="px-5 py-4 border-b border-gray-200">
+            <div className="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
               <h3 className="text-16 font-semibold text-gray-900">Metadata</h3>
+              <button className="p-1 hover:bg-gray-100 rounded transition-colors duration-150">
+                <Edit className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+              </button>
             </div>
             <div className="p-10 text-center">
               <p className="text-14 text-gray-500">No metadata</p>
             </div>
           </div>
 
-          {/* Payment Methods */}
-          <div className="card">
-            <div className="px-5 py-4 border-b border-gray-200">
-              <h3 className="text-16 font-semibold text-gray-900">Payment Methods</h3>
-            </div>
-            <div className="p-5">
-              {company.payment_methods.map((method, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-6 bg-gray-100 rounded border flex items-center justify-center">
-                      <CreditCard className="w-4 h-4 text-gray-600" />
-                    </div>
-                    <div>
-                      <p className="text-14 font-medium text-gray-900">
-                        {method.type} •••• {method.last_four}
-                      </p>
-                      <p className="text-13 text-gray-500">Expires {method.expires}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Recent Activity */}
-          <div className="card">
-            <div className="px-5 py-4 border-b border-gray-200">
-              <h3 className="text-16 font-semibold text-gray-900">Recent Activity</h3>
-            </div>
-            <div className="p-5 space-y-4">
-              {company.activity.map((activity, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 flex-shrink-0" />
-                  <div className="flex-1">
-                    <p className="text-14 font-medium text-gray-900">{activity.action}</p>
-                    <p className="text-13 text-gray-500">{formatDateTime(activity.timestamp)}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+
+
         </div>
       </div>
     </div>
