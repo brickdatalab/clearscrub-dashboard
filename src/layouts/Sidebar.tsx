@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { 
-  LayoutDashboard, 
   Building2, 
   Plug, 
   Key, 
@@ -10,7 +9,6 @@ import {
 } from 'lucide-react'
 
 const navigationItems = [
-  { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Companies', href: '/companies', icon: Building2 },
   { name: 'Integrations', href: '/integrations', icon: Plug },
   { name: 'API Keys', href: '/api-keys', icon: Key },
