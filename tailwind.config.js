@@ -36,6 +36,9 @@ export default {
         '6': '6px',
         '8': '8px',
       },
+      fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+      },
       fontSize: {
         '11': '11px',
         '12': '12px',
@@ -43,6 +46,7 @@ export default {
         '14': '14px',
         '15': '15px',
         '16': '16px',
+        '24': '24px',
         '32': '32px',
       },
       fontWeight: {

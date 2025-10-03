@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Search, Grid3X3, Bell, Settings, ChevronDown, Menu } from 'lucide-react'
+import React from 'react'
+import { Search, Bell, Settings, ChevronDown, Menu } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 
 interface TopBarProps {
@@ -7,7 +7,6 @@ interface TopBarProps {
 }
 
 export default function TopBar({ onMenuClick }: TopBarProps) {
-  const [testMode, setTestMode] = useState(false)
   const { user, signOut } = useAuth()
 
   return (
@@ -49,27 +48,6 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
 
       {/* Right Section: Controls */}
       <div className="flex items-center gap-2 lg:gap-4">
-        {/* Test Mode Toggle - Hidden on mobile */}
-        <div className="hidden lg:flex items-center gap-2">
-          <span className="text-13 text-gray-500">Test mode</span>
-          <button
-            onClick={() => setTestMode(!testMode)}
-            className={`relative w-10 h-5 rounded-full transition-colors duration-200 ${
-              testMode ? 'bg-primary-600' : 'bg-gray-200'
-            }`}
-          >
-            <div
-              className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-200 ${
-                testMode ? 'translate-x-5' : 'translate-x-0.5'
-              }`}
-            />
-          </button>
-        </div>
-
-        {/* Icon Buttons - Reduced on mobile */}
-        <button className="hidden sm:block p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-6 transition-colors duration-150">
-          <Grid3X3 className="w-5 h-5" />
-        </button>
         <button className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-6 transition-colors duration-150">
           <Bell className="w-5 h-5" />
         </button>
