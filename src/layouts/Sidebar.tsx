@@ -5,7 +5,6 @@ import {
   Plug, 
   Key,
   Bell,
-  CreditCard,
   Settings,
   BookOpen,
   X
@@ -16,7 +15,6 @@ const navigationItems = [
   { name: 'Integrations', href: '/integrations', icon: Plug },
   { name: 'API Keys', href: '/api-keys', icon: Key },
   { name: 'Notifications', href: '/notifications', icon: Bell },
-  { name: 'Billing', href: '/billing', icon: CreditCard },
   { name: 'Settings', href: '/settings', icon: Settings },
   { name: 'API Docs', href: '/api-docs', icon: BookOpen },
 ]

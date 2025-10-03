@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Companies from './pages/Companies'
 import CompanyDetail from './pages/CompanyDetail'
 import ApiKeys from './pages/ApiKeys'
+import Settings from './pages/Settings'
 import './index.css'
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
             <Route path="api-keys" element={<ApiKeys />} />
             <Route path="notifications" element={<div className="p-8"><h1 className="text-2xl font-bold">Notifications</h1><p>Coming soon...</p></div>} />
             <Route path="billing" element={<div className="p-8"><h1 className="text-2xl font-bold">Billing</h1><p>Coming soon...</p></div>} />
-            <Route path="settings" element={<div className="p-8"><h1 className="text-2xl font-bold">Settings</h1><p>Coming soon...</p></div>} />
+            <Route path="settings" element={<Settings />} />
             <Route path="api-docs" element={<div className="p-8"><h1 className="text-2xl font-bold">API Documentation</h1><p>Coming soon...</p></div>} />
             <Route path="payments" element={<div className="p-8"><h1 className="text-2xl font-bold">Payments</h1><p>Coming soon...</p></div>} />
             <Route path="customers" element={<div className="p-8"><h1 className="text-2xl font-bold">Customers</h1><p>Coming soon...</p></div>} />
