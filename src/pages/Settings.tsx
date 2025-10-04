@@ -369,7 +369,7 @@ const Settings: React.FC = () => {
               <div className="bg-gray-50 rounded-8 p-6 mb-6">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-16 font-semibold text-gray-900">Pay as you go</h3>
+                    <h3 className="text-16 font-semibold text-gray-900">Pay-As-You-Go</h3>
                     <p className="text-13 text-gray-600">Active • Next billing: Dec 15, 2024</p>
                   </div>
                   <span className="inline-flex items-center px-2 py-1 rounded-4 text-12 font-medium bg-green-100 text-green-800">
@@ -383,20 +383,24 @@ const Settings: React.FC = () => {
             <section>
               <h3 className="text-16 font-semibold text-gray-900 mb-6">Choose the plan that fits your needs</h3>
               <div className="grid md:grid-cols-3 gap-6">
-                {/* Pay as you go */}
+                {/* Pay-As-You-Go */}
                 <div className="border border-primary-200 rounded-8 p-6 bg-primary-50">
                   <div className="mb-4">
-                    <h4 className="text-16 font-semibold text-gray-900">Pay as you go</h4>
+                    <h4 className="text-16 font-semibold text-gray-900">Pay-As-You-Go</h4>
                     <div className="mt-2">
                       <span className="text-32 font-bold text-gray-900">$0.50</span>
-                      <span className="text-14 text-gray-600">/PDF</span>
+                      <span className="text-14 text-gray-600">/credit</span>
                     </div>
-                    <p className="text-13 text-gray-600 mt-1">File-based pricing, not page-based</p>
+                    <p className="text-13 text-gray-600 mt-1">Base plan with flexible usage</p>
                   </div>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
-                      Flat $0.50 per PDF
+                      $0.50 per credit
+                    </li>
+                    <li className="flex items-center gap-2 text-13 text-gray-700">
+                      <Check className="w-4 h-4 text-green-600" />
+                      $25 minimum purchase
                     </li>
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
@@ -412,20 +416,29 @@ const Settings: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Professional */}
-                <div className="border border-gray-200 rounded-8 p-6">
+                {/* Pro Plan */}
+                <div className="border border-primary-600 rounded-8 p-6 relative">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-12 font-medium">
+                      Recommended
+                    </span>
+                  </div>
                   <div className="mb-4">
-                    <h4 className="text-16 font-semibold text-gray-900">Professional</h4>
+                    <h4 className="text-16 font-semibold text-gray-900">Pro Plan</h4>
                     <div className="mt-2">
-                      <span className="text-32 font-bold text-gray-900">$99</span>
+                      <span className="text-32 font-bold text-gray-900">$299</span>
                       <span className="text-14 text-gray-600">/month</span>
                     </div>
-                    <p className="text-13 text-gray-600 mt-1">For growing companies</p>
+                    <p className="text-13 text-gray-600 mt-1">20% off Pay-as-you-go</p>
                   </div>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
-                      Up to 1,000 submissions/month
+                      750 credits included
+                    </li>
+                    <li className="flex items-center gap-2 text-13 text-gray-700">
+                      <Check className="w-4 h-4 text-green-600" />
+                      $0.40 per overage credit
                     </li>
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
@@ -440,28 +453,33 @@ const Settings: React.FC = () => {
                       Webhooks
                     </li>
                   </ul>
-                  <button className="w-full py-2 border border-gray-300 text-14 font-medium rounded-6 hover:bg-gray-50">
+                  <button className="w-full py-2 bg-primary-600 text-white text-14 font-medium rounded-6 hover:bg-primary-700">
                     Upgrade
                   </button>
                 </div>
 
-                {/* Enterprise */}
+                {/* Elite Plan */}
                 <div className="border border-gray-200 rounded-8 p-6">
                   <div className="mb-4">
-                    <h4 className="text-16 font-semibold text-gray-900">Enterprise</h4>
+                    <h4 className="text-16 font-semibold text-gray-900">Elite Plan</h4>
                     <div className="mt-2">
-                      <span className="text-32 font-bold text-gray-900">Custom</span>
+                      <span className="text-32 font-bold text-gray-900">$999</span>
+                      <span className="text-14 text-gray-600">/month</span>
                     </div>
-                    <p className="text-13 text-gray-600 mt-1">For large organizations</p>
+                    <p className="text-13 text-gray-600 mt-1">30% off Pay-as-you-go</p>
                   </div>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
-                      Unlimited submissions
+                      2,855 credits included
                     </li>
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
-                      Custom integrations
+                      $0.35 per overage credit
+                    </li>
+                    <li className="flex items-center gap-2 text-13 text-gray-700">
+                      <Check className="w-4 h-4 text-green-600" />
+                      Full API access
                     </li>
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
@@ -469,10 +487,14 @@ const Settings: React.FC = () => {
                     </li>
                     <li className="flex items-center gap-2 text-13 text-gray-700">
                       <Check className="w-4 h-4 text-green-600" />
+                      Custom integrations
+                    </li>
+                    <li className="flex items-center gap-2 text-13 text-gray-700">
+                      <Check className="w-4 h-4 text-green-600" />
                       SLA guarantee
                     </li>
                   </ul>
-                  <button className="w-full py-2 border border-gray-300 text-14 font-medium rounded-6 hover:bg-gray-50">
+                  <button className="w-full py-2 bg-gray-900 text-white text-14 font-medium rounded-6 hover:bg-gray-800">
                     Contact Sales
                   </button>
                 </div>
