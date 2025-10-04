@@ -62,27 +62,25 @@ export default function Settings() {
       {/* Settings Sub-Navigation */}
       <div className="w-64 flex-shrink-0">
         <div className="sticky top-8">
-          <div className="card p-0">
-            <div className="px-5 py-4 border-b border-gray-200">
-              <h2 className="text-16 font-semibold text-gray-900">Settings</h2>
-            </div>
-            <nav className="p-2">
-              {settingsNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`w-full flex items-center gap-3 px-3 py-2 text-14 rounded-6 transition-colors duration-150 text-left ${
-                    activeSection === item.id
-                      ? 'bg-primary-50 text-primary-700 font-medium'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.name}</span>
-                </button>
-              ))}
-            </nav>
+          <div className="px-5 py-4">
+            <h2 className="text-16 font-semibold text-gray-900">Settings</h2>
           </div>
+          <nav className="space-y-1">
+            {settingsNavItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`w-full flex items-center gap-3 px-3 py-2 text-14 rounded-6 transition-colors duration-150 text-left ${
+                  activeSection === item.id
+                    ? 'bg-primary-50 text-primary-700 font-medium'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                <item.icon className="w-4 h-4" />
+                <span>{item.name}</span>
+              </button>
+            ))}
+          </nav>
         </div>
       </div>
 
@@ -108,24 +106,24 @@ export default function Settings() {
             </div>
             <div className="p-6">
               <div className="grid md:grid-cols-3 gap-6">
-                {/* Starter Plan */}
+                {/* Pay as you go Plan */}
                 <div className="border border-gray-200 rounded-8 p-6">
                   <div className="text-center">
-                    <h3 className="text-16 font-semibold text-gray-900">Starter</h3>
+                    <h3 className="text-16 font-semibold text-gray-900">Pay as you go</h3>
                     <div className="mt-4">
-                      <span className="text-32 font-bold text-gray-900">$29</span>
-                      <span className="text-14 text-gray-600">/month</span>
+                      <span className="text-32 font-bold text-gray-900">$0.50</span>
+                      <span className="text-14 text-gray-600">/PDF</span>
                     </div>
-                    <p className="text-13 text-gray-600 mt-2">Perfect for small businesses</p>
+                    <p className="text-13 text-gray-600 mt-2">File-based pricing, not page-based</p>
                   </div>
                   <ul className="mt-6 space-y-3">
                     <li className="flex items-center gap-2 text-14">
                       <Check className="w-4 h-4 text-green-600" />
-                      Up to 100 submissions/month
+                      Flat $0.50 per PDF
                     </li>
                     <li className="flex items-center gap-2 text-14">
                       <Check className="w-4 h-4 text-green-600" />
-                      Basic API access
+                      API access
                     </li>
                     <li className="flex items-center gap-2 text-14">
                       <Check className="w-4 h-4 text-green-600" />
@@ -403,43 +401,62 @@ export default function Settings() {
               <p className="text-14 text-gray-600 mt-1">Control which submissions are allowed</p>
             </div>
             <div className="p-6 space-y-6">
-              {/* Domain Restrictions */}
+              {/* Suppressions */}
               <div>
-                <h3 className="text-16 font-semibold text-gray-900 mb-4">Domain Restrictions</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-8">
-                    <div>
-                      <p className="text-14 font-medium text-gray-900">Allow only specific domains</p>
-                      <p className="text-13 text-gray-600">Only submissions from whitelisted domains will be processed</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" className="sr-only peer" />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-                    </label>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-13 font-medium text-gray-700 mb-2">
-                      Allowed Domains
-                    </label>
+                <h3 className="text-16 font-semibold text-gray-900 mb-4">Suppressions</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* State Suppressions */}
+                  <div className="space-y-4">
+                    <h4 className="text-14 font-medium text-gray-900">State Suppressions</h4>
+                    <p className="text-13 text-gray-600">Exclude specific states from processing</p>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <input
                           type="text"
-                          placeholder="example.com"
+                          placeholder="e.g., California, Texas"
                           className="flex-1 px-3 py-2 border border-gray-300 rounded-6 text-14 focus:outline-none focus:ring-3 focus:ring-primary-600/10 focus:border-primary-600"
                         />
                         <button className="btn-primary">Add</button>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-13">
-                          yourcompany.com
+                          California
                           <button className="text-primary-600 hover:text-primary-800">
                             <X className="w-3 h-3" />
                           </button>
                         </span>
                         <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-13">
-                          partner.com
+                          New York
+                          <button className="text-primary-600 hover:text-primary-800">
+                            <X className="w-3 h-3" />
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Industry Suppressions */}
+                  <div className="space-y-4">
+                    <h4 className="text-14 font-medium text-gray-900">Industry Suppressions</h4>
+                    <p className="text-13 text-gray-600">Exclude specific industries from processing</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          placeholder="e.g., Healthcare, Finance"
+                          className="flex-1 px-3 py-2 border border-gray-300 rounded-6 text-14 focus:outline-none focus:ring-3 focus:ring-primary-600/10 focus:border-primary-600"
+                        />
+                        <button className="btn-primary">Add</button>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-13">
+                          Healthcare
+                          <button className="text-primary-600 hover:text-primary-800">
+                            <X className="w-3 h-3" />
+                          </button>
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-13">
+                          Cannabis
                           <button className="text-primary-600 hover:text-primary-800">
                             <X className="w-3 h-3" />
                           </button>
@@ -450,32 +467,7 @@ export default function Settings() {
                 </div>
               </div>
 
-              {/* File Type Restrictions */}
-              <div>
-                <h3 className="text-16 font-semibold text-gray-900 mb-4">File Type Restrictions</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
-                    <h4 className="text-14 font-medium text-gray-900">Allowed File Types</h4>
-                    {['PDF', 'CSV', 'Excel', 'Word'].map((type) => (
-                      <label key={type} className="flex items-center gap-2">
-                        <input type="checkbox" defaultChecked className="rounded border-gray-300 text-primary-600 focus:ring-primary-600" />
-                        <span className="text-14 text-gray-700">{type}</span>
-                      </label>
-                    ))}
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="text-14 font-medium text-gray-900">File Size Limits</h4>
-                    <div>
-                      <label className="block text-13 text-gray-600 mb-1">Maximum file size (MB)</label>
-                      <input
-                        type="number"
-                        defaultValue="50"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-6 text-14 focus:outline-none focus:ring-3 focus:ring-primary-600/10 focus:border-primary-600"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Search, Bell, Settings, ChevronDown, Menu } from 'lucide-react'
+import React, { useState } from 'react'
+import { Search, Bell, Settings, ChevronDown, Menu, LogOut } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 
 interface TopBarProps {
@@ -8,6 +8,7 @@ interface TopBarProps {
 
 export default function TopBar({ onMenuClick }: TopBarProps) {
   const { user, signOut } = useAuth()
+  const [showProfileMenu, setShowProfileMenu] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-60 bg-white border-b border-gray-200 flex items-center justify-between px-4 lg:px-5">
@@ -58,12 +59,37 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
         {/* User Avatar */}
         <div className="relative">
           <button
-            onClick={signOut}
+            onClick={() => setShowProfileMenu(!showProfileMenu)}
             className="w-8 h-8 bg-primary-600 text-white text-14 font-semibold rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors duration-150"
-            title={`${user?.name} - Click to sign out`}
+            title={`${user?.name} - Click for options`}
           >
-            {user?.name?.charAt(0) || 'U'}
+            {user?.name?.charAt(0) || 'D'}
           </button>
+          {showProfileMenu && (
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-8 shadow-lg border border-gray-200 py-1 z-50">
+              <button
+                onClick={() => {
+                  setShowProfileMenu(false)
+                  window.location.href = '/settings'
+                }}
+                className="w-full px-4 py-2 text-left text-14 text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+              >
+                <Settings className="w-4 h-4" />
+                Settings
+              </button>
+              <hr className="my-1 border-gray-100" />
+              <button
+                onClick={() => {
+                  setShowProfileMenu(false)
+                  signOut()
+                }}
+                className="w-full px-4 py-2 text-left text-14 text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+              >
+                <LogOut className="w-4 h-4" />
+                Sign out
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>
